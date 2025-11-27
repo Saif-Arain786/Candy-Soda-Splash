@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Candy Soda Splash</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Nunito', sans-serif;
+        user-select: none;
+        overflow: hidden;
+        background-color: #1a1a2e;
+      }
+      h1, h2, h3, .candy-font {
+        font-family: 'Fredoka One', cursive;
+      }
+      .candy-shadow {
+        text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+      }
+      .text-stroke {
+        -webkit-text-stroke: 2px #2d1b4e;
+        paint-order: stroke fill;
+      }
+      .text-stroke-white {
+        -webkit-text-stroke: 1.5px white;
+        paint-order: stroke fill;
+      }
+      .glossy {
+        background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.1) 49%, rgba(255,255,255,0) 51%, rgba(255,255,255,0.1) 100%);
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+      }
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      
+      /* Soda Bubbles Animation */
+      @keyframes float-up {
+        0% { transform: translateY(110vh) scale(0.5); opacity: 0; }
+        10% { opacity: 0.6; }
+        90% { opacity: 0.6; }
+        100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+      }
+      .animate-float-up {
+        animation: float-up 8s linear infinite;
+      }
+      
+      /* Effect Animations */
+      @keyframes sparkle {
+        0% { transform: scale(0) rotate(0deg); opacity: 1; }
+        50% { transform: scale(1.5) rotate(180deg); opacity: 1; filter: brightness(1.5); }
+        100% { transform: scale(0) rotate(360deg); opacity: 0; }
+      }
+      .animate-sparkle {
+        animation: sparkle 0.6s ease-out forwards;
+      }
+
+      @keyframes explosion {
+        0% { transform: scale(0.5); opacity: 1; filter: brightness(2); }
+        40% { transform: scale(1.8); opacity: 0.8; filter: brightness(1.5); }
+        100% { transform: scale(2.5); opacity: 0; }
+      }
+      .animate-explosion {
+        animation: explosion 0.8s ease-out forwards;
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% { filter: brightness(1) drop-shadow(0 0 0px rgba(255,255,255,0)); }
+        50% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.8)); }
+      }
+      .animate-pulse-glow {
+        animation: pulse-glow 2s infinite;
+      }
+      
+      @keyframes pop-in {
+        0% { transform: scale(0); }
+        80% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+      }
+      .animate-in-pop {
+        animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+
+      @keyframes wiggle {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(3deg) scale(1.1); }
+        50% { transform: rotate(-3deg) scale(1.1); }
+        75% { transform: rotate(3deg) scale(1.1); }
+      }
+      .animate-wiggle {
+        animation: wiggle 0.3s ease-in-out;
+      }
+      
+      .bg-glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      
+      .bg-stripes {
+        background-image: linear-gradient(
+          45deg, 
+          rgba(255, 255, 255, 0.05) 25%, 
+          transparent 25%, 
+          transparent 50%, 
+          rgba(255, 255, 255, 0.05) 50%, 
+          rgba(255, 255, 255, 0.05) 75%, 
+          transparent 75%, 
+          transparent
+        );
+        background-size: 40px 40px;
+      }
+      
+      .bottle-clip {
+        clip-path: polygon(
+           20% 0%, 80% 0%, /* Top neck width */
+           85% 15%, 100% 20%, /* Shoulder right */
+           100% 90%, 85% 100%, /* Bottom right corner */
+           15% 100%, 0% 90%, /* Bottom left corner */
+           0% 20%, 15% 15% /* Shoulder left */
+        );
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
